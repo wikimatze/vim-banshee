@@ -1,4 +1,6 @@
 function! OpenBanshee()
-  let cmd = "banshee --query-album --query-artist"
-  echom system(cmd)[:-2]
+  let banshee = "banshee --query-album --query-artist"
+  let playlist = split(system(banshee), '\n')
+  echom string(playlist)
 endfunction
+
