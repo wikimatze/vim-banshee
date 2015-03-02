@@ -14,3 +14,9 @@ function! banshee#PlayNextSong()
   echomsg message
 endfunction
 
+function! banshee#PlayPreviousSong()
+  let next_song = "banshee --previous && banshee --query-title"
+  let result = split(system(next_song))
+  let message = '[banshee] NOW PLAYING: ' . join(result[1:-1], ' ')
+  echomsg message
+endfunction
