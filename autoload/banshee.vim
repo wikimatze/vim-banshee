@@ -6,3 +6,11 @@ function! banshee#DisplayPlaylist()
     call append(line('$'), track)
   endfor
 endfunction
+
+function! banshee#PlayNextSong()
+  let next_song = "banshee --next && banshee --query-title"
+  let result = split(system(next_song))
+  let message = '[banshee] NOW PLAYING: ' . join(result[1:-1], ' ')
+  echomsg message
+endfunction
+
