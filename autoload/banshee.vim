@@ -41,3 +41,18 @@ function! banshee#PlayPreviousSong()
   echomsg message
 endfunction
 
+function! banshee#PlayToggle()
+  let toggle = system("banshee --toggle-playing")
+
+  let status = "banshee --query-last-state"
+  let result = split(split(system(status), '\n')[0], ': ')
+  if(result[1] == 'paused')
+    echohl MoreMsg
+    echom "Start playing"
+  else
+    echohl WarningMsg
+    echom "Stop playing"
+  endif
+  echohl Normal
+endfunction
+
