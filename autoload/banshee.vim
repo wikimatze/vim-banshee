@@ -46,6 +46,22 @@ function! banshee#PlayPreviousSong()
   echomsg message
 endfunction
 
+function! banshee#Play()
+  let stop = "banshee --play"
+  let result = system(stop)
+  echohl MoreMsg
+  echom "Start playing"
+  echohl Normal
+endfunction
+
+function! banshee#Stop()
+  let stop = "banshee --stop"
+  let result = system(stop)
+  echohl WarningMsg
+  echom "Stop playing"
+  echohl Normal
+endfunction
+
 function! banshee#PlayToggle()
   let toggle = system("banshee --toggle-playing")
 
