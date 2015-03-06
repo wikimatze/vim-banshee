@@ -31,9 +31,9 @@ function! banshee#PlayPreviousSong()
   for entry in result
     let entries = split(entry, ':')
     if(index(result, entry) == min(result))
-        let msg = msg . entries[1]
+      let msg .= entries[1]
     else
-      let msg = msg . ' |' . entries[1]
+      let msg .= ' |' . entries[1]
     endif
   endfor
 
@@ -69,3 +69,5 @@ function! banshee#SongDuration()
   endfor
   echom "Current playtime: " . str2nr(time) . "/" . str2nr(duration)
 endfunction
+
+
