@@ -56,3 +56,16 @@ function! banshee#PlayToggle()
   echohl Normal
 endfunction
 
+function! banshee#SongDuration()
+  let playtime = "banshee --query-position --query-duration"
+  let result = split(system(playtime), '\n')
+  for information in result
+    let informationEntry = split(information, ':')
+    if(informationEntry[0] == 'position')
+      let time = informationEntry[1]
+    else
+      let duration = informationEntry[1]
+    endif
+  endfor
+  echom "Current playtime: " . str2nr(time) . "/" . str2nr(duration)
+endfunction
