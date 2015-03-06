@@ -7,6 +7,11 @@ function! banshee#DisplayPlaylist()
   endfor
 endfunction
 
+function! banshee#RestartOrPreviousSong()
+  let next_song = "banshee --restart-or-previous"
+  let result = system(next_song)
+endfunction
+
 function! banshee#PlayNextSong()
   let next_song = "banshee --next && banshee --query-title --query-artist --query-album"
   let result = split(system(next_song), '\n')
