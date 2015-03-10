@@ -1,6 +1,6 @@
 function! banshee#DisplayPlaylist()
-  let banshee = "banshee --query-album --query-artist && banshee --query-album --query-artist"
-  let playlist = split(system(banshee), '\n')
+  let cmd = "banshee --query-album --query-artist && banshee --query-album --query-artist"
+  let playlist = split(system(cmd), '\n')
 
   for track in playlist
     call append(line('$'), track)
@@ -8,8 +8,8 @@ function! banshee#DisplayPlaylist()
 endfunction
 
 function! banshee#RestartOrPreviousSong()
-  let next_song = "banshee --restart-or-previous"
-  let result = system(next_song)
+  let cmd = "banshee --restart-or-previous"
+  let result = system(cmd)
 endfunction
 
 function! banshee#PlayNextSong()
@@ -100,8 +100,8 @@ function! banshee#SongDuration()
 endfunction
 
 function! banshee#StopWhenFinished()
-  let next_song = "banshee --stop-when-finished"
-  let result = system(next_song)
+  let cmd = "banshee --stop-when-finished"
+  let result = system(cmd)
 endfunction
 
 function! banshee#SetVolume(level)
@@ -110,3 +110,7 @@ function! banshee#SetVolume(level)
   echomsg "[banshee] Set volume to " . a:level
 endfunction
 
+function! banshee#SetPosition(position)
+  let cmd = "banshee --set-position=" . a:position
+  let result = system(cmd)
+endfunction
