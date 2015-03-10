@@ -30,8 +30,8 @@ function! banshee#PlayNextSong()
 endfunction
 
 function! banshee#PlayPreviousSong()
-  let next_song = "banshee --previous && banshee --query-title --query-artist --query-album"
-  let result = split(system(next_song), '\n')
+  let cmd = "banshee --previous && banshee --query-title --query-artist --query-album"
+  let result = split(system(cmd), '\n')
   let msg = ''
   for entry in result
     let entries = split(entry, ':')
@@ -47,18 +47,26 @@ function! banshee#PlayPreviousSong()
 endfunction
 
 function! banshee#Play()
-  let stop = "banshee --play"
-  let result = system(stop)
+  let cmd = "banshee --play"
+  let result = system(cmd)
   echohl MoreMsg
   echom "Start playing"
   echohl Normal
 endfunction
 
 function! banshee#Stop()
-  let stop = "banshee --stop"
-  let result = system(stop)
+  let cmd = "banshee --stop"
+  let result = system(cmd)
   echohl WarningMsg
   echom "Stop playing"
+  echohl Normal
+endfunction
+
+function! banshee#Pause()
+  let cmd = "banshee --pause"
+  let result = system(cmd)
+  echohl WarningMsg
+  echom "Pause playing"
   echohl Normal
 endfunction
 
