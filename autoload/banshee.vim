@@ -104,3 +104,9 @@ function! banshee#StopWhenFinished()
   let result = system(next_song)
 endfunction
 
+function! banshee#SetVolume(level)
+  let cmd = "banshee --set-volume=" . a:level
+  let result = system(cmd)
+  echomsg "[banshee] Set volume to " . a:level
+endfunction
+
