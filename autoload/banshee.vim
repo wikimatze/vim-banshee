@@ -91,4 +91,8 @@ function! banshee#SongDuration()
   echom "Current playtime: " . str2nr(time) . "/" . str2nr(duration)
 endfunction
 
+function! banshee#StopWhenFinished()
+  let next_song = "banshee --stop-when-finished"
+  let result = system(next_song)
+endfunction
 
