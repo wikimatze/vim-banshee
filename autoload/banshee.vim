@@ -145,3 +145,8 @@ function! banshee#ShowOpenLocation()
   let cmd = "banshee --show-open-location"
   let result = system(cmd)
 endfunction
+
+function! banshee#ShowPreferences()
+  let cmd = "banshee --show-preferences"
+  let result = system(cmd)
+endfunction
