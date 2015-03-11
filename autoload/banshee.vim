@@ -114,3 +114,10 @@ function! banshee#SetPosition(position)
   let cmd = "banshee --set-position=" . a:position
   let result = system(cmd)
 endfunction
+
+function! banshee#SetRating(rating)
+  let cmd = "banshee --set-rating=" . a:rating
+  let result = system(cmd)
+  echomsg "[banshee] Set rating to " . a:rating
+endfunction
+
