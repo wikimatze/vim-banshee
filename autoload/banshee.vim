@@ -121,3 +121,8 @@ function! banshee#SetRating(rating)
   echomsg "[banshee] Set rating to " . a:rating
 endfunction
 
+function! banshee#Show()
+  let cmd = "banshee --show"
+  let result = system(cmd)
+endfunction
+
