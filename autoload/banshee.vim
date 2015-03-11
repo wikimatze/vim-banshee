@@ -136,3 +136,12 @@ function! banshee#Hide()
   let result = system(cmd)
 endfunction
 
+function! banshee#ShowImportMedia()
+  let cmd = "banshee --show-import-media"
+  let result = system(cmd)
+endfunction
+
+function! banshee#ShowOpenLocation()
+  let cmd = "banshee --show-open-location"
+  let result = system(cmd)
+endfunction
