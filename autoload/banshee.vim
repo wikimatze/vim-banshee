@@ -126,3 +126,13 @@ function! banshee#Show()
   let result = system(cmd)
 endfunction
 
+function! banshee#Fullscreen()
+  let cmd = "banshee --fullscreen"
+  let result = system(cmd)
+endfunction
+
+function! banshee#Hide()
+  let cmd = "banshee --hide"
+  let result = system(cmd)
+endfunction
+
