@@ -8,37 +8,15 @@ function! banshee#DisplayPlaylist()
 endfunction
 
 function! banshee#PlayNextSong()
-  let next_song = "banshee --next && banshee --query-title --query-artist --query-album"
-  let result = split(system(next_song), '\n')
-  let msg = ''
-  for entry in result
-    let entries = split(entry, ':')
-    if(index(result, entry) == min(result))
-        let msg = msg . entries[1]
-    else
-      let msg = msg . ' |' . entries[1]
-    endif
-  endfor
-
-  let message = '[banshee] NOW PLAYING: ' . msg
-  echomsg message
+  let next_song = "banshee --next"
+  let result = system(next_song)
+  call banshee#Information("PLAYING NEXT SONG")
 endfunction
 
 function! banshee#PlayPreviousSong()
-  let cmd = "banshee --previous && banshee --query-title --query-artist --query-album"
-  let result = split(system(cmd), '\n')
-  let msg = ''
-  for entry in result
-    let entries = split(entry, ':')
-    if(index(result, entry) == min(result))
-      let msg .= entries[1]
-    else
-      let msg .= ' |' . entries[1]
-    endif
-  endfor
-
-  let message = '[banshee] NOW PLAYING: ' . msg
-  echomsg message
+  let cmd = "banshee --previous"
+  let result = system(cmd)
+  call banshee#Information("PLAYING PREVIOUS SONG")
 endfunction
 
 
@@ -48,7 +26,13 @@ function! banshee#RestartOrPreviousSong()
   call banshee#Information()
 endfunction
 
-function! banshee#Information()
+function! banshee#Information(text)
+  if a:0 > 0
+    let additional_text = a:1
+  else
+    let additional_text = ''
+  endif
+
   let cmd = "banshee --query-title --query-artist --query-album"
   let result = split(system(cmd), '\n')
   let msg = ''
@@ -61,7 +45,8 @@ function! banshee#Information()
     endif
   endfor
 
-  let message = '[banshee] CURRENT SONG: ' . msg
+  echohl MoreMsg
+  let message = a:text . ':' . msg
   echomsg message
 endfunction
 
@@ -69,16 +54,7 @@ function! banshee#Play()
   let cmd = "banshee --play"
   let result = system(cmd)
   echohl MoreMsg
-  echom "Start playing"
-  echohl Normal
-endfunction
-
-function! banshee#Stop()
-  let cmd = "banshee --stop"
-  let result = system(cmd)
-  echohl WarningMsg
-  echom "Stop playing"
-  echohl Normal
+  call banshee#Information('Start playing')
 endfunction
 
 function! banshee#Pause()
@@ -89,7 +65,7 @@ function! banshee#Pause()
   echohl Normal
 endfunction
 
-function! banshee#PlayToggle()
+function! banshee#Toggle()
   let toggle = system("banshee --toggle-playing")
 
   let status = "banshee --query-last-state"
@@ -97,10 +73,19 @@ function! banshee#PlayToggle()
   if(result[1] == 'paused')
     echohl MoreMsg
     echom "Start playing"
+    call banshee#Information()
   else
     echohl WarningMsg
     echom "Stop playing"
   endif
+  echohl Normal
+endfunction
+
+function! banshee#Stop()
+  let cmd = "banshee --stop"
+  let result = system(cmd)
+  echohl WarningMsg
+  echom "Stop playing"
   echohl Normal
 endfunction
 
