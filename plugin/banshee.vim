@@ -13,7 +13,15 @@ function! OpenBanshee()
   call banshee#DisplayPlaylist()
 endfunction
 
-if(!exists(':BansheeNextSong'))
-  command! BansheeNextSong call banshee#PlayNextSong()
+if(!exists(':BansheeNext'))
+  command! BansheeNext call banshee#PlayNextSong()
+endif
+
+if(!exists(':BansheePrevious'))
+  command! BansheePrevious call banshee#PlayPreviousSong()
+endif
+
+if(!exists(':BansheeRestartOrPrevious'))
+  command! BansheeRestartOrPrevious call banshee#RestartOrPreviousSong()
 endif
 
