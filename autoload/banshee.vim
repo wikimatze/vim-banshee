@@ -7,11 +7,6 @@ function! banshee#DisplayPlaylist()
   endfor
 endfunction
 
-function! banshee#RestartOrPreviousSong()
-  let cmd = "banshee --restart-or-previous"
-  let result = system(cmd)
-endfunction
-
 function! banshee#PlayNextSong()
   let next_song = "banshee --next && banshee --query-title --query-artist --query-album"
   let result = split(system(next_song), '\n')
@@ -43,6 +38,30 @@ function! banshee#PlayPreviousSong()
   endfor
 
   let message = '[banshee] NOW PLAYING: ' . msg
+  echomsg message
+endfunction
+
+
+function! banshee#RestartOrPreviousSong()
+  let cmd = "banshee --restart-or-previous"
+  let result = system(cmd)
+  call banshee#Information()
+endfunction
+
+function! banshee#Information()
+  let cmd = "banshee --query-title --query-artist --query-album"
+  let result = split(system(cmd), '\n')
+  let msg = ''
+  for entry in result
+    let entries = split(entry, ':')
+    if(index(result, entry) == min(result))
+      let msg .= entries[1]
+    else
+      let msg .= ' |' . entries[1]
+    endif
+  endfor
+
+  let message = '[banshee] CURRENT SONG: ' . msg
   echomsg message
 endfunction
 
