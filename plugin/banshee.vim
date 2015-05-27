@@ -13,3 +13,7 @@ function! OpenBanshee()
   call banshee#DisplayPlaylist()
 endfunction
 
+if(!exists(':BansheeNextSong'))
+  command! BansheeNextSong call banshee#PlayNextSong()
+endif
+
