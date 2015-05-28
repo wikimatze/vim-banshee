@@ -19,15 +19,14 @@ function! banshee#PlayPreviousSong()
   call banshee#Information("PLAYING PREVIOUS SONG")
 endfunction
 
-
 function! banshee#RestartOrPreviousSong()
   let cmd = "banshee --restart-or-previous"
   let result = system(cmd)
-  call banshee#Information()
+  call banshee#Information('')
 endfunction
 
 function! banshee#Information(text)
-  if a:0 > 0
+  if a:text > 0
     let additional_text = a:1
   else
     let additional_text = ''
@@ -106,12 +105,13 @@ endfunction
 function! banshee#StopWhenFinished()
   let cmd = "banshee --stop-when-finished"
   let result = system(cmd)
+  echomsg "banshee will stop after finishing the current song"
 endfunction
 
 function! banshee#SetVolume(level)
   let cmd = "banshee --set-volume=" . a:level
   let result = system(cmd)
-  echomsg "[banshee] Set volume to " . a:level
+  echomsg "Set volume to " . a:level
 endfunction
 
 function! banshee#SetPosition(position)
