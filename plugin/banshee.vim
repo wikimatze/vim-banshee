@@ -52,3 +52,8 @@ endif
 if(!exists(':BansheeStopWhenFinished'))
   command! BansheeStopWhenFinished call banshee#StopWhenFinished()
 endif
+
+if(!exists(':BansheeSetPosition'))
+  command! -nargs=1 BansheeSetPosition call banshee#SetPosition(<args>)
+endif
+
