@@ -130,22 +130,22 @@ function! banshee#Show()
   let result = system(cmd)
 endfunction
 
-function! banshee#Fullscreen()
-  let cmd = "banshee --fullscreen"
-  let result = system(cmd)
-endfunction
-
 function! banshee#Hide()
   let cmd = "banshee --hide"
   let result = system(cmd)
 endfunction
 
-function! banshee#ShowImportMedia()
+function! banshee#Fullscreen()
+  let cmd = "banshee --fullscreen"
+  let result = system(cmd)
+endfunction
+
+function! banshee#ImportMedia()
   let cmd = "banshee --show-import-media"
   let result = system(cmd)
 endfunction
 
-function! banshee#ShowOpenLocation()
+function! banshee#OpenLocation()
   let cmd = "banshee --show-open-location"
   let result = system(cmd)
 endfunction

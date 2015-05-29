@@ -57,3 +57,31 @@ if(!exists(':BansheeSetPosition'))
   command! -nargs=1 BansheeSetPosition call banshee#SetPosition(<args>)
 endif
 
+if(!exists(':BansheeSetRating'))
+  command! -nargs=1 BansheeSetRating call banshee#SetRating(<args>)
+endif
+
+if(!exists(':BansheeShow'))
+  command! BansheeShow call banshee#Show()
+endif
+
+if(!exists(':BansheeHide'))
+  command! BansheeHide call banshee#Hide()
+endif
+
+if(!exists(':BansheeFullscreen'))
+  command! BansheeFullscreen call banshee#Fullscreen()
+endif
+
+if(!exists(':BansheeImportMedia'))
+  command! BansheeImportMedia call banshee#ImportMedia()
+endif
+
+if(!exists(':BansheeOpenLocation'))
+  command! BansheeOpenLocation call banshee#OpenLocation()
+endif
+
+if(!exists(':BansheePreferences'))
+  command! BansheePreferences call banshee#ShowPreferences()
+endif
+
