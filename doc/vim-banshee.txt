@@ -1,0 +1,78 @@
+*vim-banshee.txt*  A wrapper for the banshee.
+
+Being able to change the song, volume, stop, and restart songs.
+
+==================================================================
+CONTENTS                                       *Banshee-contents*
+  1. Intro..................|BansheeIntro|
+  2. Commands...............|BansheeCommands|
+  3. Installation...........|BansheeInstallation|
+  4. License................|BansheeLicense|
+  5. Bugs...................|BansheeBugs|
+  6. Contributing ..........|BansheeContributing|
+  7. Changelog .............|BansheeChangelog|
+  8. Credits ...............|BansheeCredits|
+
+==================================================================
+1. Intro                                              *BansheeIntro*
+
+I normally open the GUI version of banshee to manage my music.
+Why isn't there a wrapper for it? Because I love listening to music
+
+This is my first real plugin
+
+
+==================================================================
+2. Commands                                        *BansheeCommands*
+
+:BansheeNext                                          *:BansheeNext*
+Play the next song in the playlist.
+
+
+:BansheePrevious                                  *:BansheePrevious*
+Play the previous song in the playlist.
+
+
+
+==================================================================
+3. Installation                                *BansheeInstallation*
+
+Unzip the (https://github.com/wikimatze/vim-banshee/zipball/master)
+archive file inside your Vim profile directory (usually  `~/.vim`).
+
+
+==================================================================
+4. License                                          *BansheeLicense*
+
+MIT.
+
+
+==================================================================
+5. Bugs                                                *BansheeBugs*
+
+Any bugs by you can be posted on the github page of this
+project: https://github.com/wikimatze/vim-banshee/issues
+
+
+==================================================================
+6. Contributing                                *BansheeContributing*
+
+If you have ideas for further features, code improvements, or do
+you know what advanced features of the vimscripting I can use in
+my project? Fork the project on github and send a pull request.
+
+https://github.com/wikimatze/banshee
+
+==================================================================
+7. Changelog                                      *BansheeChangelog*
+
+v1.0.0
+* initial stable release
+
+==================================================================
+8. Credits                                          *BansheeCredits*
+
+Trying out the examples of Ben Klein's book
+"The VimL Primer: Edit Like a Pro with Vim Plugins and Scripts."
+
+vim:ft=help:norl
