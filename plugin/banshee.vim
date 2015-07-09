@@ -25,8 +25,8 @@ if(!exists(':BansheeRestart'))
   command! BansheeRestart call banshee#Restart()
 endif
 
-if(!exists(':BansheeInformation'))
-  command! BansheeInformation call banshee#Information()
+if(!exists(':BansheeInfo'))
+  command! BansheeInfo call banshee#Info()
 endif
 
 if(!exists(':BansheePlay'))

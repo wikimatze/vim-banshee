@@ -25,6 +25,23 @@ function! banshee#Restart()
   call banshee#Information('')
 endfunction
 
+function! banshee#Info()
+  let cmd = "banshee --query-title --query-artist --query-album"
+  let result = split(system(cmd), '\n')
+  let msg = ''
+  for entry in result
+    let entries = split(entry, ':')
+    if(index(result, entry) == min(result))
+      let msg .= entries[1]
+    else
+      let msg .= ' |' . entries[1]
+    endif
+  endfor
+
+  echohl ErrorMsg
+  echomsg msg
+endfunction
+
 function! banshee#Information(text)
   if a:text > 0
     let additional_text = a:1
