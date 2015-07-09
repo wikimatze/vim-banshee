@@ -21,8 +21,8 @@ if(!exists(':BansheePrevious'))
   command! BansheePrevious call banshee#PlayPreviousSong()
 endif
 
-if(!exists(':BansheeRestartOrPrevious'))
-  command! BansheeRestartOrPrevious call banshee#RestartOrPreviousSong()
+if(!exists(':BansheeRestart'))
+  command! BansheeRestart call banshee#Restart()
 endif
 
 if(!exists(':BansheeInformation'))

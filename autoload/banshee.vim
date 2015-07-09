@@ -19,7 +19,7 @@ function! banshee#PlayPreviousSong()
   call banshee#Information("PLAYING PREVIOUS SONG")
 endfunction
 
-function! banshee#RestartOrPreviousSong()
+function! banshee#Restart()
   let cmd = "banshee --restart-or-previous"
   let result = system(cmd)
   call banshee#Information('')
