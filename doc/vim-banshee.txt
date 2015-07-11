@@ -14,7 +14,7 @@ CONTENTS                                       *Banshee-contents*
   8. Credits ...............|BansheeCredits|
 
 ==================================================================
-1. Intro                                              *BansheeIntro*
+1. Intro                                          *BansheeIntro*
 
 I normally open the GUI version of banshee to manage my music.
 Why isn't there a wrapper for it? Because I love listening to music
@@ -23,15 +23,109 @@ This is my first real plugin
 
 
 ==================================================================
-2. Commands                                        *BansheeCommands*
+2. Commands                                       *BansheeCommands*
 
-:BansheeNext                                          *:BansheeNext*
-Play the next song in the playlist.
+                                                  *:BansheeNext*
+:BansheeNext
+                        Play the next song.
 
 
-:BansheePrevious                                  *:BansheePrevious*
-Play the previous song in the playlist.
+                                                  *:BansheePrevious*
+:BansheePrevious
+                        Play the previous song.
 
+
+						  *:BansheeRestart*
+:BansheeRestart
+			Restart the currently played song.
+
+
+						  *:BansheeInfo*
+:BansheeInfo
+			Print the title, composer and album of the current
+			song.
+
+
+						  *:BansheePlay*
+:BansheePlay
+			Start playing the current song.
+
+
+						  *:BansheePause*
+:BansheePause
+			Stop playing the current song.
+
+
+						  *:BansheeToggle*
+:BansheeToggle
+			Start/stop playing the current song.
+
+
+						  *:BansheeStop*
+:BansheeStop
+			Stop playing the current song and don't
+			save the position in the song.
+
+
+						  *:BansheeStopWhenFinished*
+:BansheeStopWhenFinished
+			Finish the current song and when this is finished, stops
+			playing the next one.
+
+
+						   *:BansheeDuration*
+:BansheeDurarion
+			Shows the current and total length of the current song.
+
+
+						   *:BansheeSetVolume*
+:BansheeSetVolume {number}
+			If {number} is 100 then it's maxium and 0 stands for
+			mute
+
+
+						   *:BansheeSetPosition*
+:BansheeSetPosition {number}
+			Set the position in seconds.
+
+			{number} is in seconds. If the value too big it will
+			jump to the next song.
+
+
+						   *:BansheeSetRating*
+:BansheeSetRating {number}
+			Set the rating of the current song.
+			{number} can be from 0 (very bad) to 5 (very good)
+
+
+						   *:BansheeShow*
+:BansheeShow
+			Display the banshee UI.
+
+
+						   *:BansheeHide*
+:BansheeHide
+			Hide the banshee program.
+
+
+						   *:BansheeFullscreen*
+:BansheeFullscreen
+			Display the banshee UI in fullscreen
+
+
+						   *:BansheeImportMedia*
+:BansheeImportMedia
+			Opens the dialog to import files to the local library.
+
+
+						   *:BansheeOpenLocation*
+:BansheeOpenLocation
+			Opens the dialog to import a single resource.
+
+
+						   *:BansheePreferences*
+:BansheePreferences
+			Opens the settings of banshee.
 
 
 ==================================================================
@@ -75,4 +169,5 @@ v1.0.0
 Trying out the examples of Ben Klein's book
 "The VimL Primer: Edit Like a Pro with Vim Plugins and Scripts."
 
-vim:ft=help:norl
+
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
