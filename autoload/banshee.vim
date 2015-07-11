@@ -88,8 +88,7 @@ function! banshee#Toggle()
   let result = split(split(system(status), '\n')[0], ': ')
   if(result[1] == 'paused')
     echohl MoreMsg
-    echom "Start playing"
-    call banshee#Information()
+    call banshee#Information('Start playing')
   else
     echohl WarningMsg
     echom "Stop playing"
