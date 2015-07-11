@@ -104,6 +104,12 @@ function! banshee#Stop()
   echohl Normal
 endfunction
 
+function! banshee#StopWhenFinished()
+  let cmd = "banshee --stop-when-finished"
+  let result = system(cmd)
+  echomsg "banshee will stop after finishing the current song"
+endfunction
+
 function! banshee#SongDuration()
   let playtime = "banshee --query-position --query-duration"
   let result = split(system(playtime), '\n')
@@ -116,12 +122,6 @@ function! banshee#SongDuration()
     endif
   endfor
   echom "Current playtime: " . str2nr(time) . "/" . str2nr(duration)
-endfunction
-
-function! banshee#StopWhenFinished()
-  let cmd = "banshee --stop-when-finished"
-  let result = system(cmd)
-  echomsg "banshee will stop after finishing the current song"
 endfunction
 
 function! banshee#SetVolume(level)
