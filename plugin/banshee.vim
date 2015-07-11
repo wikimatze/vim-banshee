@@ -45,12 +45,16 @@ if(!exists(':BansheeStop'))
   command! BansheeStop call banshee#Stop()
 endif
 
-if(!exists(':BansheeSongDuration'))
-  command! BansheeSongDuration call banshee#SongDuration()
-endif
-
 if(!exists(':BansheeStopWhenFinished'))
   command! BansheeStopWhenFinished call banshee#StopWhenFinished()
+endif
+
+if(!exists(':BansheeDuration'))
+  command! BansheeDuration call banshee#Duration()
+endif
+
+if(!exists(':BansheeSetVolume'))
+  command! -nargs=1 BansheeSetVolume call banshee#SetVolume(<args>)
 endif
 
 if(!exists(':BansheeSetPosition'))
