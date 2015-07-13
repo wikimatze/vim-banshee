@@ -43,27 +43,7 @@ function! banshee#Info()
 endfunction
 
 function! banshee#Information(text)
-  if a:text > 0
-    let additional_text = a:1
-  else
-    let additional_text = ''
-  endif
-
-  let cmd = "banshee --query-title --query-artist --query-album"
-  let result = split(system(cmd), '\n')
-  let msg = ''
-  for entry in result
-    let entries = split(entry, ':')
-    if(index(result, entry) == min(result))
-      let msg .= entries[1]
-    else
-      let msg .= ' |' . entries[1]
-    endif
-  endfor
-
-  echohl MoreMsg
-  let message = a:text . ':' . msg
-  echomsg message
+  return 1
 endfunction
 
 function! banshee#Play()
@@ -110,7 +90,7 @@ function! banshee#StopWhenFinished()
   echomsg "banshee will stop after finishing the current song"
 endfunction
 
-function! banshee#SongDuration()
+function! banshee#Duration()
   let playtime = "banshee --query-position --query-duration"
   let result = split(system(playtime), '\n')
   for information in result
@@ -128,6 +108,12 @@ function! banshee#SetVolume(level)
   let cmd = "banshee --set-volume=" . a:level
   let result = system(cmd)
   echomsg "Set volume to " . a:level
+endfunction
+
+
+function! banshee#test()
+  echomsg "Test"
+  return 'Test'
 endfunction
 
 function! banshee#SetPosition(position)

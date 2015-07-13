@@ -57,12 +57,12 @@ if(!exists(':BansheeSetVolume'))
   command! -nargs=1 BansheeSetVolume call banshee#SetVolume(<args>)
 endif
 
-if(!exists(':BansheeSetPosition'))
-  command! -nargs=1 BansheeSetPosition call banshee#SetPosition(<args>)
-endif
-
 if(!exists(':BansheeSetRating'))
   command! -nargs=1 BansheeSetRating call banshee#SetRating(<args>)
+endif
+
+if(!exists(':BansheeSetPosition'))
+  command! -nargs=1 BansheeSetPosition call banshee#SetPosition(<args>)
 endif
 
 if(!exists(':BansheeShow'))
