@@ -1,0 +1,104 @@
+# Test case
+Execute (BansheeInfo display title, artist and album):
+  !banshee --play
+  redir => test
+  BansheeInfo
+  redir END
+  AssertEqual get(split(test), 0), 'Crystals'
+  AssertEqual get(split(test), 2), 'Professor'
+  AssertEqual get(split(test), 3), 'Kliq'
+  AssertEqual get(split(test), 5), 'Curriculum'
+  AssertEqual get(split(test), 6), 'Vitae'
+Execute (:BansheeNext play the nexz song):
+  BansheeNext
+  redir => next
+  BansheeInfo
+  redir END
+  AssertEqual get(split(next), 0), 'The'
+  AssertEqual get(split(next), 1), 'Vowel'
+  AssertEqual get(split(next), 2), 'Song'
+  !banshee --stop
+Execute (:BansheePrevious play the previous song):
+  !banshee --play
+  BansheePrevious
+  redir => previous
+  BansheeInfo
+  redir END
+  AssertEqual get(split(previous), 0), 'Crystals'
+  !banshee --stop
+Execute (:BansheeRestart, :BansheePlay, :BansheeStop, :BansheeSetPosition, :BansheeDuration):
+  BansheePlay
+  BansheeSetPosition 60
+  BansheeRestart
+  BansheeStop
+  redir => duration
+  BansheeDuration
+  redir END
+  AssertEqual get(split(duration), 0), 'Current'
+  AssertEqual get(split(duration), 1), 'playtime:'
+  AssertEqual get(split(duration), 2), '0/323'
+Execute (:BansheePause stop playing the current song):
+  BansheePlay
+  BansheeSetPosition 80
+  redir => time
+  BansheeDuration
+  redir END
+  AssertEqual get(split(time), 2), '80/323'
+  BansheePause
+  sleep 1000m
+  redir => newtime
+  BansheeDuration
+  redir END
+  AssertEqual get(split(newtime), 2), '80/323'
+Execute (:BansheeToggle pauses and plays a song):
+  BansheePlay
+  BansheeSetPosition 90
+  BansheeToggle
+  redir => toggletime
+  BansheeToggle
+  BansheeDuration
+  redir END
+  AssertEqual get(split(toggletime), 2), '90/323'
+Execute (:BansheeStop stop playing a song and when it's played again, it will start from the beginning):
+  BansheePlay
+  BansheeSetPosition 80
+  redir => time
+  BansheeDuration
+  redir END
+  AssertEqual get(split(time), 2), '80/323'
+  BansheeStop
+  redir => newtime
+  BansheePlay
+  BansheeDuration
+  redir END
+  AssertEqual get(split(newtime), 2), '0/323'
+Execute (:BansheeSetRating and :BansheeSetVolume):
+  redir => negative_rating
+  BansheeSetRating 0
+  redir END
+  AssertEqual get(split(negative_rating), 0), '[banshee]'
+  AssertEqual get(split(negative_rating), 1), 'Set'
+  AssertEqual get(split(negative_rating), 2), 'rating'
+  AssertEqual get(split(negative_rating), 3), 'to'
+  AssertEqual get(split(negative_rating), 4), '0'
+  redir => perfect_rating
+  BansheeSetRating 5
+  redir END
+  AssertEqual get(split(perfect_rating), 0), '[banshee]'
+  AssertEqual get(split(perfect_rating), 1), 'Set'
+  AssertEqual get(split(perfect_rating), 2), 'rating'
+  AssertEqual get(split(perfect_rating), 3), 'to'
+  AssertEqual get(split(perfect_rating), 4), '5'
+  BansheeSetVolume 0
+  BansheeSetVolume 100
+  BansheeSetVolume 50
+Execute (Existance of commands :BansheeShow, :BansheeFullscreen, :BansheeHide, :BansheeStopWhenFinished):
+  BansheeShow
+  BansheeFullscreen
+  BansheeHide
+  BansheeStopWhenFinished
+Execute (Existance of dialog commands: :BansheeImportMedia, :BansheeOpenLocation, :BansheePreferences):
+  BansheeImportMedia
+  BansheeOpenLocation
+  BansheePreferences
+
