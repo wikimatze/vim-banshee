@@ -1,3 +1,8 @@
+if !executable('banshee')
+  echoerr "banshee is not installed!"
+  finish
+endif
+
 function! OpenBanshee()
   if(bufexists('banshee'))
     let bansheewin = bufwinnr('banshee.playlist')

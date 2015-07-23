@@ -1,4 +1,3 @@
-# Test case
 Execute (BansheeInfo display title, artist and album):
   !banshee --play
   redir => test
