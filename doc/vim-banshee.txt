@@ -74,14 +74,14 @@ This is my first real plugin
 
 
 						   *:BansheeDuration*
-:BansheeDurarion
+:BansheeDuration
 			Shows the current and total length of the current song.
 
 
 						   *:BansheeSetVolume*
 :BansheeSetVolume {number}
 			If {number} is 100 then it's maxium and 0 stands for
-			mute
+			mute.
 
 
 						   *:BansheeSetPosition*
@@ -95,7 +95,7 @@ This is my first real plugin
 						   *:BansheeSetRating*
 :BansheeSetRating {number}
 			Set the rating of the current song.
-			{number} can be from 0 (very bad) to 5 (very good)
+			{number} can be from 0 (very bad) to 5 (very good).
 
 
 						   *:BansheeShow*
@@ -110,7 +110,7 @@ This is my first real plugin
 
 						   *:BansheeFullscreen*
 :BansheeFullscreen
-			Display the banshee UI in fullscreen
+			Display the banshee UI in fullscreen.
 
 
 						   *:BansheeImportMedia*
@@ -130,6 +130,14 @@ This is my first real plugin
 
 ==================================================================
 3. Installation                                *BansheeInstallation*
+
+Via plugin manager:
+
+  1. Add `Plug 'wikimatze/vim-banshee.vim'` to .vimrc
+  2. Run `:PlugInstall`
+
+
+Or manually
 
 Unzip the (https://github.com/wikimatze/vim-banshee/zipball/master)
 archive file inside your Vim profile directory (usually  `~/.vim`).

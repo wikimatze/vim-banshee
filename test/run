@@ -1,0 +1,10 @@
+#!/bin/bash
+banshee --play-enqued fixtures/crystals.mp3 fixtures/focus.mp3 &
+
+vim -Nu <(cat << EOF
+filetype off
+set rtp+=~/.vim/plugged/vader.vim
+set rtp+=~/.vim/plugged/vim-banshee
+filetype plugin indent on
+syntax enable
+EOF) +Vader*
