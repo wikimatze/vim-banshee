@@ -131,6 +131,14 @@ This is my first real plugin
 ==================================================================
 3. Installation                                *BansheeInstallation*
 
+Via plugin manager:
+
+  1. Add `Plug 'wikimatze/vim-banshee.vim'` to .vimrc
+  2. Run `:PlugInstall`
+
+
+Or manually
+
 Unzip the (https://github.com/wikimatze/vim-banshee/zipball/master)
 archive file inside your Vim profile directory (usually  `~/.vim`).
 
