@@ -1,6 +1,5 @@
 #!/bin/bash
-
-banshee --play-enqued songs/crystals.mp3 songs/focus.mp3 &
+banshee --play-enqued fixtures/crystals.mp3 fixtures/focus.mp3 &
 
 vim -Nu <(cat << EOF
 filetype off
