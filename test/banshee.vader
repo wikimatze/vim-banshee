@@ -9,14 +9,13 @@ Execute (BansheeInfo display title, artist and album):
   AssertEqual get(split(test), 3), 'Kliq'
   AssertEqual get(split(test), 5), 'Curriculum'
   AssertEqual get(split(test), 6), 'Vitae'
-Execute (:BansheeNext play the nexz song):
+Execute (:BansheeNext play the next song):
   BansheeNext
   redir => next
   BansheeInfo
   redir END
-  AssertEqual get(split(next), 0), 'The'
-  AssertEqual get(split(next), 1), 'Vowel'
-  AssertEqual get(split(next), 2), 'Song'
+  AssertEqual get(split(next), 0), 'Shifting'
+  AssertEqual get(split(next), 1), 'Focus'
   !banshee --stop
 Execute (:BansheePrevious play the previous song):
   !banshee --play
